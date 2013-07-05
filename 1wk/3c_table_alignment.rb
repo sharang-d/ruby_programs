@@ -1,42 +1,55 @@
-def multiplication_table (num, heading = false, decorate = false)
-  col_width = (num * num).to_s.length
-  if num == 0  
-    decoration_width = 3 
-  else
-    decoration_width = (num * col_width) + num + 1
-  end
-  @str = ''
-  heading(heading, decoration_width)
-  decorate(decorate, decoration_width)
-  num == 0 ? @str << " #{num} \n" : numeric_table(num, col_width)
-  decorate(decorate, decoration_width)
-  @str
+def multiplication_table (number, heading = false, decorate = false)
+  @table = ''
+  column_width(number)
+  heading(heading)
+  decorate(decorate)
+  table(number)
+  decorate(decorate)
+  @table << "\n"
 end
 
 private
-def numeric_table(num, col_width)
-  for i in 1..num
-    @str << ' '
-    i.step(i * num, i) { |i| @str << "%#{col_width}d " % i }
-    @str << "\n"
+def column_width(number)
+  @col_width = (number * number).to_s.length
+  if number == 0 || number == 1
+    @decoration_width = 3
+  else
+    @decoration_width = number.to_s.length +  ((number - 1) * @col_width) + number + 1
   end
 end
 
-def heading(heading, decoration_width)
-  @str << ' ' * ((decoration_width / 2) - heading.length / 2) if decoration_width > heading.length
-  @str << heading + "\n"
+def decorate(boolean)
+  @table << '=' * @decoration_width + "\n" if boolean  
 end
 
-def decorate(decorate, decoration_width)
-  @str << '=' * decoration_width + "\n" if decorate
+def table(num)
+  if num == 0 || num == 1
+    @table << " #{num} \n"
+  else
+    for i in 1..num
+      @table << " %#{num.to_s.length}d " %i     
+      (i+i).step(i * num, i) { |i| @table << "%#{@col_width}d " %i }
+      @table << "\n"
+    end
+  end 
 end
 
-tables = [
-  [5, 'abc', true],
-  [ 10, 'Multiplication tables upto 10', true],
-  [1, 'one', true], 
-  [0, 'zero', true]
-]
-tables.each do |parameters|
-  puts multiplication_table(*parameters)
+def heading(heading)
+  if heading
+    @table << ' ' * ((@decoration_width / 2) - heading.length / 2) if @decoration_width > heading.length
+    @table << heading + "\n"
+  end
 end
+
+if __FILE__ == $PROGRAM_NAME
+  [ [15,'15 X 15',true],
+    [5, 'abc', false],
+    [10, false, true],
+    [1, 'one', true],
+    [0, 'zero', true]    
+  ].each do |parameters|
+    puts multiplication_table(*parameters)
+  end
+end
+
+
