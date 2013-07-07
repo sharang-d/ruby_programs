@@ -1,7 +1,7 @@
-def conditional_print(condition, print_if, print_else)
-  (condition && print_if or print_else)
+def conditional(condition, true_value = 'yeah', false_value = 'boo')
+   condition && true_value or false_value 
 end
 
-puts conditional_print(5 > 3, "yeah", "boo")
-puts conditional_print(5 < 3, "yeah", "boo")
-puts conditional_print(5 == 5, "yes", "no")
+puts conditional(5 > 3)
+puts conditional(5 < 3)
+puts conditional(5 == 5, "yes", "no")
