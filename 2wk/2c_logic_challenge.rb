@@ -1,4 +1,4 @@
-def conditional(condition, true_value = 'true', false_value = 'false')
+def conditional(condition, true_value = 'yes', false_value = 'no')
   condition && true_value or false_value 
 end
 
