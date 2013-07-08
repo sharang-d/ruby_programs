@@ -2,9 +2,8 @@ def leap_year?(year)
   year % 400 == 0 or year % 4 == 0 && year % 100 != 0
 end
 
-def minutes_in_year(year, leap = -1)
-  leap == -1 && leap = leap_year?(year)
-  60 * 24 * (leap ? 366 : 365)
+def minutes_in_year(year, is_leap)
+  60 * 24 * (is_leap ? 366 : 365)
 end
 
 [ 2000, 2004, 1900, 2005 ].each do |year|
