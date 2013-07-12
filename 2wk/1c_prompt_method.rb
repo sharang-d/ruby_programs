@@ -1,3 +1,4 @@
+STDOUT.sync = true
 =begin
 # 1
 # Enter 1 for all input prompts
