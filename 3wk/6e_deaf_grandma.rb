@@ -1,11 +1,11 @@
 STDOUT.sync = true
-PASS_PHRASE = "HUH?! SPEAK UP, SONNY!"
-Fail_Phrase = Proc.new { "NO, NOT SINCE #{rand(1930..1950)}!"}
+fail_phrase = 'UH?! SPEAK UP, SONNY!'
+pass_phrase = Proc.new { "NO, NOT SINCE #{rand(1930..1950)}!"}
 
-while 1 do
+while true do
   print "You: "
   str = gets.chomp
   break if str == 'BYE'
-  puts "Grandma: #{str.upcase == str ? Fail_Phrase.call : PASS_PHRASE}"
+  puts "Grandma: #{str.upcase == str ? pass_phrase.call : fail_phrase}"
 end
 
