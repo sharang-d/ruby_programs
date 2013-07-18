@@ -14,7 +14,7 @@ words.each_with_index do |word, index|
 end
 words = []
 new_array.each do |element|
-  nil == (element =~ /^\.|!|\?|:|;|,|'|"$/) && words.insert(0, element) 
+  element =~ /^\.|!|\?|:|;|,|'|"$/ || words.insert(0, element) 
 end
 new_array.each_with_index do |element, index|
   element =~ /^\.|!|\?|:|;|,|'|"$/ && words.insert(index+1, element) 
