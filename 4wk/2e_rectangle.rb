@@ -1,14 +1,9 @@
 class Rectangle
-  def initialize(width, height)
-    @area = width * height 
-    @perimeter = 2 * (width * height)
-  end
-  def area
-    @area
-  end
-  def perimeter
-    @perimeter
-  end
+  attr_reader(:perimeter, :area)
+  def initialize(width = 0, height = 0)
+    @perimeter = 2 * (width + height)
+    @area =  width * height
+  end 
 end
 
 r = Rectangle.new(23.45, 34.67)
