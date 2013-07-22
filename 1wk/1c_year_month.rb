@@ -1,21 +1,15 @@
-def seconds_to_years_and_months(seconds, precision=true)
-  years = seconds.to_f / 60 / 60 / 24 / 365
-  months = (years % 1) * 12
-  months = months.to_i unless precision
-  return years.to_i, months
+seconds_array = [979000000, 2158493738, 246144023, 1270166272, 1025600095]
+for age_in_seconds in seconds_array
+	seconds = age_in_seconds
+	minutes = seconds/60 
+	seconds %= 60
+	hours = minutes/60
+	minutes %= 60
+	days = hours/24
+	hours %= 24
+	years = days/365
+	days %= 365
+	months = days/30
+	days %= 30
+	printf("%d seconds: I\'m %d years %d months %d days %d hours %d minutes %d seconds old\n",age_in_seconds,years,months,days,hours,minutes,seconds)
 end
-
-if __FILE__ == $PROGRAM_NAME
-  puts "With precision:"
-  [979000000, 2158493738, 246144023, 1270166272, 1025600095].each do |age_in_seconds|
-    years, months = seconds_to_years_and_months(age_in_seconds)
-    puts "#{age_in_seconds} seconds: #{years} years, #{months} months"
-  end
-
-  puts "\nWithout precision:"
-  [979000000, 2158493738, 246144023, 1270166272, 1025600095].each do |age_in_seconds|
-    years, months = seconds_to_years_and_months(age_in_seconds,false)
-    puts "#{age_in_seconds} seconds: #{years} years, #{months} months"
-  end
-end
-
