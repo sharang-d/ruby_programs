@@ -1,4 +1,5 @@
 class Dog
+  attr_reader :name
   def initialize name = 'Anonymous'
     @name = name
   end
@@ -11,7 +12,6 @@ class Dog
   def chase_cat
     'vrooom!'
   end
-  attr_reader :name
 end
 
 d = Dog.new('Danny')
