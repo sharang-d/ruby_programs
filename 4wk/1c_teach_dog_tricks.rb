@@ -11,12 +11,13 @@ class Dog
   def chase_cat
     'vrooom!'
   end
-  def teach_trick method_name
-    block_given? && define_singleton_method(method_name, Proc.new)
+  def teach_trick(method_name, &block) 
+    block_given? && define_singleton_method(method_name, &block)
   end
   def method_missing(m, *args, &block)  
     "#{@name} doesn't know how to #{m}!"
   end
+  attr_reader :name
 end
 
 d = Dog.new('Lassie')
