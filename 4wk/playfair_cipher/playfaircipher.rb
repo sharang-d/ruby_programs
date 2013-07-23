@@ -4,8 +4,7 @@ class PlayfairCipher
   attr_reader(:square, :key)
 
   def initialize k = 'Playfair Example'
-    @key = k
-    @square = make_square(@key)
+    change_key k
     @next_pos = 1
   end
 
