@@ -12,14 +12,7 @@ class PlayfairCipher
     #OR
     #key.scan(/[a-zA-Z]/).join.concat(('A'..'Z').to_a.join).gsub('J','I').gsub some_awesome_regex_to_remove_duplicate_chars
 
-    new_arr = []
-    0.upto 4 do |i|
-      new_arr[i] = []
-      (i * 5).upto ((i * 5) + 4) do |j|
-        new_arr[i].push(key[j])
-      end
-    end
-    new_arr
+    [key[0..4], key[5..9], key[10..14], key[15..19], key[20..24]]
   end
 end
 
