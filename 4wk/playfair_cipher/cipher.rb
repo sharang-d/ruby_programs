@@ -1,4 +1,4 @@
-require './playfaircipher.rb'
+require_relative 'playfaircipher.rb'
 STDOUT.sync = true
 
 pfc = PlayfairCipher.new
