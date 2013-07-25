@@ -9,7 +9,6 @@ while (bye_count ||= 0; bye_count < 3) do
   you_say = gets.chomp
   if you_say == 'BYE' 
     bye_count += 1
-    you_say.downcase!
   else
     bye_count = 0
     puts granny_says[you_say] 
