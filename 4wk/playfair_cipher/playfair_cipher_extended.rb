@@ -76,7 +76,7 @@ class PlayfairCipher
         result << x_or_z
         x_or_z = x_or_z == 'X' ? 'Z' : 'X'
       else
-        x_or_z == 'X' || x_or_z == 'X'
+        x_or_z = 'X'
       end
       result << c
     end
@@ -103,11 +103,11 @@ if __FILE__ == $PROGRAM_NAME
 
   print "\n\n"
 =end
-  p = PlayfairCipher.new
+  p = PlayfairCipher.new 'RubyLearning.com'
   pp p.square
   p p.hash.sort
 
-  str = 'Hide the gold in the tree stump' 
+  str = 'Weeee LOOVE Ruuuuby!' 
   puts "Original: #{str}"
   enciphered = p.encipher(str) 
   puts "Enciphered: #{enciphered}"

@@ -66,9 +66,9 @@ class PlayfairCipher
     str.each_char do |c|
       if result[result.size - 1] == c  && !result.size.even?
         result << x_or_z
-        x_or_z = x_or_z == 'X' ? 'Z' : 'X'
+        x_or_z = (x_or_z == 'X' ? 'Z' : 'X')
       else
-        x_or_z == 'X' || x_or_z == 'X'
+        x_or_z = 'X'
       end
       result << c
     end
@@ -84,6 +84,7 @@ class PlayfairCipher
 end
 
 if __FILE__ == $PROGRAM_NAME
+=begin
   p = PlayfairCipher.new('I love Ruby.')
   pp p.square
 
@@ -93,11 +94,11 @@ if __FILE__ == $PROGRAM_NAME
   pp p.square
 
   print "\n\n"
-
-  p = PlayfairCipher.new
+=end
+  p = PlayfairCipher.new 'RubyLearning.com'
   pp p.square
 
-  str = 'Hide the gold in the tree stump' 
+  str = 'Weeee LOOOOVE Ruuuuby!' 
   puts "Original: #{str}"
   enciphered = p.encipher(str) 
   puts "Enciphered: #{enciphered}"
