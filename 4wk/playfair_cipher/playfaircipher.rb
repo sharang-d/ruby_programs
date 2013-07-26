@@ -66,7 +66,7 @@ class PlayfairCipher
     str.each_char do |c|
       if result[result.size - 1] == c  && !result.size.even?
         result << x_or_z
-        x_or_z = (x_or_z == 'X' ? 'Z' : 'X')
+        x_or_z = x_or_z == 'X' ? 'Z' : 'X'
       else
         x_or_z = 'X'
       end
