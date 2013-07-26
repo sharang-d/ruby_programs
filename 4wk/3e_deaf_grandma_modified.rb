@@ -4,7 +4,8 @@ granny_says = Proc.new do |text|
   'Granny: '.concat(text.upcase == text ? "NO, NOT SINCE #{rand(1930..1950)}!" : 'HUH?! SPEAK UP, SONNY!')
 end
 
-while (bye_count ||= 0; bye_count < 3) do
+bye_count = 0
+while bye_count < 3 do
   print "You: "
   you_say = gets.chomp
   if you_say == 'BYE' 
