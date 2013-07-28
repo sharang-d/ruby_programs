@@ -10,7 +10,7 @@ class Shape
   end
 
   def rotate
-    puts "Rotating around point #{@rotate_point}.."
+    puts "Rotating #{@shape_name} around point #{@rotate_point}.."
   end
 
   def on_click
