@@ -11,10 +11,14 @@ class GameBoard
     num = num.to_i
     if @locations.include?(num)
       @guessed << num unless @guessed.include?(num)
-      @locations.all? {|e| @guessed.include?(e)} ? 'kill' : 'Hit'
+      if @locations.all? {|e| @guessed.include?(e)} 
+        puts 'End'
+        return 'kill' 
+      else
+        puts 'Hit'
+      end
     else
-      'Miss'
+      puts 'Miss'
     end
   end
 end
-

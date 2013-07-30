@@ -27,10 +27,8 @@ while is_alive
   # invoke the check_yourself method on the GameBoard object
   result = gb.check_yourself(user_guess)
   no_of_guesses += 1
-  if result == 'kill'
+  if (result == 'kill')
     is_alive = false
     puts "You took #{no_of_guesses} guesses"
-  else
-    puts result
   end
 end
