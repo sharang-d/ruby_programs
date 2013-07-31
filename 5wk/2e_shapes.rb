@@ -1,16 +1,18 @@
 class Shape
-  attr_accessor(:rotate_point, :audio_file_path)
-  def  initialize(sn, rp, ap)
-    @rotate_point = rp
-    @shape_name = sn
-    @audio_file_path = ap 
+  attr_accessor :options
+
+  def  initialize( options = {} )
+    shape_name = self.class.to_s
+    defaults = { name: shape_name, rotate_point: [0, 0], audio_file: shape_name.downcase, extension: 'aif' }
+    @options = defaults.merge(options)
   end
+
   def play_audio
-    puts "Playing file #{@audio_file_path}"
+    puts "Playing file #{@options[:audio_file]}.#{@options[:extension]}"
   end
 
   def rotate
-    puts "Rotating #{@shape_name} around point #{@rotate_point}.."
+    puts "Rotating #{@options[:name]} around point #{@options[:rotate_point]}.."
   end
 
   def on_click
@@ -20,34 +22,17 @@ class Shape
 end
 
 class Square < Shape
-  def initialize
-    @rotate_point = [0,0] # can be calculated and changed later
-    @shape_name = self.class.to_s
-    @audio_file_path = 'path_to_square.aif'
-  end
 end
 
 class Circle < Shape
-  def initialize
-    @rotate_point = [0, 0]
-    @shape_name = self.class.to_s
-    @audio_file_path = 'path_to_circle.aif'
-  end
 end
 
 class Triangle < Shape
-  def initialize
-    @rotate_point = [0, 0]
-    @shape_name = self.class.to_s
-    @audio_file_path = 'path_to_circle.aif'
-  end
 end
 
 class Amoeba < Shape
   def initialize
-    @rotate_point = [100, 10]
-    @shape_name = self.class.to_s
-    @audio_file_path = 'path_to_amoeba.aif'
+    super( audio_file: 'path_to_amoeba', extension: 'hif', rotate_point: [100, 10])
   end
 end
 
