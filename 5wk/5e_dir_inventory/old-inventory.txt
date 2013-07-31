@@ -1,0 +1,12 @@
+1c_teach_dog_tricks.rb
+1e_dog.rb
+2e_rectangle.rb
+3e_deaf_grandma_modified.rb
+4e_swap_contents.rb
+5e_dir_inventory.rb
+5e_dir_inventory/5e_dir_inventory.rb
+5e_dir_inventory/5e_find_difference.rb
+test.rb
+playfair_cipher
+playfair_cipher/playfair_cipher_extended.rb
+playfair_cipher/playfaircipher.rb
