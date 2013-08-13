@@ -19,7 +19,7 @@ class AudioTags
         @details[:album] = f.read(30)
         @details[:year] = f.read(4)
         @details[:comment] = f.read(30)
-        @details[:genre] = @@genres[f.read(1).to_i]
+        @details[:genre] = @@genres.fetch(f.read(1).unpack('C')[0], 'Unknown')
       else
         @details[:tag] = 'ID3 Tag not present'
       end
