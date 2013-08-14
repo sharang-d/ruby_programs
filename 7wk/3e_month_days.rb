@@ -1,9 +1,13 @@
 require 'date'
 
-DAYS_IN_MONTHS = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+DAYS_IN_MONTHS = [29, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+# doctest: handles leapyears
+# >> month_days(2, 2000)
+# => 29
+# >> month_days(2, 2013)
+# => 28
 def month_days(month, year = Time.now.year)
-  return 29 if month == 2 && Date.gregorian_leap?(year)
-  DAYS_IN_MONTHS[month]
+  DAYS_IN_MONTHS[month == 2 && Date.gregorian_leap?(year) ? 0 : 2]
 end
 
 if __FILE__ == $PROGRAM_NAME
