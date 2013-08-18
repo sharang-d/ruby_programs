@@ -1,7 +1,7 @@
 require 'date'
 
 DAYS_IN_MONTHS = [29, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-# doctest: handles leapyears
+# doctest: handles leap years
 # >> month_days(2, 2000)
 # => 29
 # >> month_days(2, 2013)

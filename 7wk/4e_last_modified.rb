@@ -3,5 +3,5 @@ def last_modified(file)
 end
 
 if __FILE__ == $PROGRAM_NAME
-  puts last_modified( ARGF.argv[0])
+  puts last_modified(ARGF.argv[0])
 end
