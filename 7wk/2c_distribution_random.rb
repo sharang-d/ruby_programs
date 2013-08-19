@@ -6,12 +6,9 @@ h = Hash.new(0)
   h[one_decimal_place] += 1
 end
 
-freq = {}
-h.sort.each { |k,v| freq[k] = v }
-puts "\n  Number #{' ' * 30}Relative Frequency#{' ' * 30}Actual Frequency"
-puts '-' * 103 
-divisor = freq.values.max / 80.0
-freq.each do |k,v|
+puts "\n  Number #{' ' * 30}Relative Frequency#{' ' * 30}Actual Frequency\n#{'-' * 103}" 
+divisor = h.values.max / 80.0
+h.sort.each do |k,v|
   rel_freq = v / divisor
   stars = "#{'*' * rel_freq}#{' ' * (80 - rel_freq.floor)}"
   puts "%7s: #{stars} %10s" %[k,v]
