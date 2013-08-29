@@ -27,9 +27,7 @@ class AudioTags
   end
 
   def to_s
-    str = ''
-    @details.each { |k, v| str.concat("#{k}: #{v}\n")}
-    str
+    @details.map { |k, v| "#{k}: #{v}"}.join("\n")
   end
 
 end
