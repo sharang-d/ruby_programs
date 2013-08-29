@@ -37,7 +37,7 @@ class AudioTags
       if f.read(3) == 'TAG'
         @details[:tag] = 'Valid ID3 tag'
         [
-          [:title, 30], [:artist, 30], [:album, 30], [:year, 4], [:comment, 30],
+          [:title, 30], [:artist, 30], [:album, 30], [:year, 4], [:comment, 30]
         ].each do |tag, length|
           @details[tag] = f.read(length)
         end
@@ -49,7 +49,6 @@ class AudioTags
   end
 
   def to_s 
-    # the spirit of communicating a little more than what technically happens
     @details.map { |tag, data | "#{tag}: #{data}"}.join("\n")
   end
 
